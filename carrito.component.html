@@ -1,0 +1,16 @@
+<h2>Carrito de Compras</h2>
+
+<div *ngIf="carritoService.productos().length === 0">
+  <p>No hay productos en el carrito.</p>
+</div>
+
+<ul>
+  <li *ngFor="let p of carritoService.productos()">
+    {{ p.nombre }} - ${{ p.precio }}
+    <button (click)="carritoService.quitar(p.id)">Quitar</button>
+  </li>
+</ul>
+
+<p><strong>Total: </strong> ${{ carritoService.total() }}</p>
+
+<button (click)="generarRecibo()">Generar Recibo XML</button>
