@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Productos>
+  <Producto>
+    <id>1</id>
+    <nombre>Tortuga</nombre>
+    <precio>200</precio>
+    <descripcion>Peluche de Tortuga marina de 28cm</descripcion>
+    <imagen>assets/img/TortugaMarina.jpg</imagen>
+  </Producto>
+
+  <Producto>
+    <id>2</id>
+    <nombre>Tiburon Martillo</nombre>
+    <precio>200</precio>
+    <descripcion>Peluche de Tiburon Martillo de 28cm</descripcion>
+    <imagen>assets/img/TiburonMartillo.jpg</imagen>
+  </Producto>
+
+  <Producto>
+    <id>3</id>
+    <nombre>Foca</nombre>
+    <precio>200</precio>
+    <descripcion>Peluche de Foca Epica de 28cm</descripcion>
+    <imagen>assets/img/PelucheFoca.jpg</imagen>
+  </Producto>
+
+  <Producto>
+    <id>4</id>
+    <nombre>Orca</nombre>
+    <precio>200</precio>
+    <descripcion>Peluche de Orca de 28cm</descripcion>
+    <imagen>assets/img/OrcaPeluche.jpg</imagen>
+  </Producto>
+
+  <Producto>
+    <id>5</id>
+    <nombre>Leon Marino</nombre>
+    <precio>200</precio>
+    <descripcion>Peluche de Leon Marino de 28cm</descripcion>
+    <imagen>assets/img/LeonMarino.jpg</imagen>
+  </Producto>
+</Productos>
+
