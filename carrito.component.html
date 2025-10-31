@@ -4,13 +4,32 @@
   <p>No hay productos en el carrito.</p>
 </div>
 
-<ul>
-  <li *ngFor="let p of carritoService.productos()">
-    {{ p.nombre }} - ${{ p.precio }}
-    <button (click)="carritoService.quitar(p.id)">Quitar</button>
+<ul *ngIf="carritoService.productos().length > 0">
+  <li *ngFor="let p of carritoService.productos()" class="carrito-item" style="margin-bottom:12px;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div style="flex:1;">
+        <strong>{{ p.nombre }}</strong>
+        <div style="font-size:0.9rem; color:#555;">Precio unitario: ${{ p.precio }}</div>
+      </div>
+
+      <!-- Controles de cantidad -->
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button (click)="carritoService.actualizarCantidad(p.id, p.cantidad - 1)" [disabled]="p.cantidad <= 1">−</button>
+        <span style="min-width:28px; text-align:center;">{{ p.cantidad }}</span>
+        <button (click)="carritoService.actualizarCantidad(p.id, p.cantidad + 1)" [disabled]="p.cantidad >= p.stock">+</button>
+      </div>
+
+      <div style="min-width:120px; text-align:right;">
+        <div>Subtotal: ${{ (p.precio * p.cantidad) | number:'1.2-2' }}</div>
+        <button (click)="carritoService.quitar(p.id)" style="margin-top:6px;">Quitar</button>
+      </div>
+    </div>
   </li>
 </ul>
 
 <p><strong>Total: </strong> ${{ carritoService.total() }}</p>
 
-<button (click)="generarRecibo()">Generar Recibo XML</button>
+<!-- Botones extras -->
+<div style="margin-top:12px;">
+  <button (click)="generarRecibo()" [disabled]="carritoService.productos().length === 0">Generar recibo</button>
+</div>

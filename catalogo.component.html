@@ -1,13 +1,21 @@
-<div class="catalogo">
+<div class="catalogo-container">
   <div *ngIf="productos().length === 0">
     <p>No hay productos cargados.</p>
   </div>
 
-  <div *ngFor="let producto of productos()" class="producto-card">
-    <h3>{{ producto.nombre }}</h3>
-    <p>{{ producto.descripcion }}</p>
-    <p><strong>Precio: </strong> ${{ producto.precio }}</p>
-    <img [src]="producto.imagen" alt="{{ producto.nombre }}" width="150" />
-    <button (click)="agregarAlCarrito(producto)">Agregar al carrito</button>
+  <div class="catalogo-grid">
+    <div *ngFor="let producto of productos()" class="producto-card">
+      <img [src]="producto.imagen" alt="{{ producto.nombre }}" />
+
+      <div class="producto-info">
+        <h3>{{ producto.nombre }}</h3>
+        <p>{{ producto.descripcion }}</p>
+        <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+
+
+
+        <button (click)="agregarAlCarrito(producto)">Agregar al carrito</button>
+      </div>
+    </div>
   </div>
 </div>
